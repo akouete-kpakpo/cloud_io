@@ -1,0 +1,13 @@
+numpy>=1.19.5
+pandas>=1.4.3
+jupyter>=1.0.0
+ipykernel>=6.15.1
+ipython>=8.4.0
+black>=22.6.0
+flake8>=5.0.3
+pytest>=6.2.4
+pip-tools>=6.6.0
+google-auth>=2.6.6
+google-cloud>=0.34.0
+google-cloud-storage>=2.3.0
+testing-tools
