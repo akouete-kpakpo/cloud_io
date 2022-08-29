@@ -4,7 +4,7 @@ from testing_tools.notebook import (
     assert_notebook_runs_without_errors,
 )
 from testing_tools.notebook import list_notebooks
-from summer.tools.common_path import NOTEBOOK_PATH
+from cloud_io.tools.common_path import NOTEBOOK_PATH
 
 
 @pytest.mark.tuto
