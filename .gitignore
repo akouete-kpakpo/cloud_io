@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Root files already contained in pillar repository
+
+/.gitignore
+/setup.py
+/pytest.ini
