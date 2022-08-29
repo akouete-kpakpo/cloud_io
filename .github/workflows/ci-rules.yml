@@ -1,0 +1,42 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python package
+
+on:
+  workflow_dispatch:
+      branches: ['*']
+  push:
+    branches: [ main ]
+
+env:
+  GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}  
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2 
+      with:
+        repository: akouete-kpakpo/testing_recipes
+        path: testing_recipes
+        ref: "e03ea17806b39772ea4a4a731d40372d4845e4c7"
+    - name: Install dependencies 
+      run: |
+        make setup-submodule
+        make venv
+    - name: Run Lint with flake8 and unit tests & test notebooks
+      run: |
+        make venv-activate
+        make test-all
