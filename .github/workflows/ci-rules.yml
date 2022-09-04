@@ -31,7 +31,7 @@ jobs:
       with:
         repository: akouete-kpakpo/testing_recipes
         path: testing_recipes
-        ref: "e03ea17806b39772ea4a4a731d40372d4845e4c7"
+        ref: "34418ca1394f2e6c43bd81ddec86a6ba7cda4348"
     - name: Install dependencies 
       run: |
         make setup-submodule
